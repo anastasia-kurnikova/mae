@@ -43,7 +43,7 @@ def get_args_parser():
     parser = argparse.ArgumentParser('MAE fine-tuning for image classification', add_help=False)
     parser.add_argument('--batch_size', default=64, type=int,
                         help='Batch size per GPU (effective batch size is batch_size * accum_iter * # gpus')
-    parser.add_argument('--epochs', default=50, type=int)
+    parser.add_argument('--epochs', default=5, type=int)
     parser.add_argument('--accum_iter', default=1, type=int,
                         help='Accumulate gradient iterations (for increasing the effective batch size under memory constraints)')
 
@@ -117,12 +117,12 @@ def get_args_parser():
                         help='Use class token instead of global pool for classification')
 
     # Dataset parameters
-    parser.add_argument('--data_path', default='/datasets01/imagenet_full_size/061417/', type=str,
+    parser.add_argument('--data_path', default='/data2/akurniko/ViTissue/data/orion/tile_64_png/', type=str,
                         help='dataset path')
-    parser.add_argument('--nb_classes', default=1000, type=int,
+    parser.add_argument('--nb_classes', default=19, type=int,
                         help='number of the classification types')
 
-    parser.add_argument('--output_dir', default='./output_dir',
+    parser.add_argument('--output_dir', default='/data2/akurniko/ViTissue/data/orion/tile_64_png/',
                         help='path where to save, empty for no saving')
     parser.add_argument('--log_dir', default='./output_dir',
                         help='path where to tensorboard log')
